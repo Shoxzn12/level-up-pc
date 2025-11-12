@@ -27,6 +27,10 @@ app.use(express.json());
 // Servir archivos estáticos (tu web)
 app.use(express.static(path.join(__dirname, "dist")));
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
+
 // ==========================
 // PRODUCTOS: DATASTORE JSON
 // ==========================
